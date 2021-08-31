@@ -1,9 +1,8 @@
-import Link from 'next/link'
-import { signIn, signOut, useSession } from 'next-auth/client'
+import { signIn, useSession } from 'next-auth/client'
 import styles from '../styles/Header.module.css'
 import Head from "next/head";
 import {Navbar, Nav, NavDropdown} from "react-bootstrap";
-import DropdownMenu from "react-bootstrap/DropdownMenu";
+
 
 // The approach used in this component shows how to build a sign in and sign out
 // component that works on pages which support both client and server side
