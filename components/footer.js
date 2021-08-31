@@ -7,7 +7,7 @@ import {
     FaFacebookF,
     FaLinkedinIn,
     FaDAndD,
-    FaSteam, FaBattleNet
+    FaSteam
 } from "react-icons/fa";
 
 export default function Footer() {
