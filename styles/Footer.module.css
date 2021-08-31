@@ -13,3 +13,29 @@
     display: inline-block;
     margin-right: 1rem;
 }
+
+.SocialNetwork {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.SocialNetwork li {
+    margin-right: 20px;
+}
+
+.SocialNetwork a {
+    display: inline-block;
+}
+
+.SocialNetwork svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+    transition: 0.5s;
+}
+
+.SocialNetwork svg :hover a svg {
+    opacity: 0.5;
+}
