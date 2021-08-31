@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { signIn, signOut, useSession } from 'next-auth/client'
 import styles from './header.module.css'
+import Head from "next/head";
+
 
 // The approach used in this component shows how to build a sign in and sign out
 // component that works on pages which support both client and server side
@@ -10,6 +12,11 @@ export default function Header () {
 
     return (
         <header>
+            <Head>
+                <title>Sean Stoves</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+            </Head>
+
             <noscript>
                 <style>{`.nojs-show { opacity: 1; top: 0; }`}</style>
             </noscript>
@@ -54,6 +61,7 @@ export default function Header () {
                     <li className={styles.navItem}><Link href="/server"><a>Server</a></Link></li>
                     <li className={styles.navItem}><Link href="/protected"><a>Protected</a></Link></li>
                     <li className={styles.navItem}><Link href="/api-example"><a>API</a></Link></li>
+                    <li className={styles.navItem}><Link href="/carousel"><a>Testing Bootstrap</a></Link></li>
                 </ul>
             </nav>
         </header>
