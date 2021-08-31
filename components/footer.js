@@ -1,25 +1,21 @@
-import Link from "next/link"
 import styles from "../styles/Footer.module.css"
-import packageJSON from "../package.json"
+import {Navbar, Nav, NavDropdown} from "react-bootstrap";
 
 export default function Footer() {
     return (
         <footer className={styles.footer}>
             <hr />
-            <ul className={styles.navItems}>
-                <li className={styles.navItem}>
-                    <a href="https://twitter.com/sstoves">Twitter</a>
-                </li>
-                <li className={styles.navItem}>
-                    <a href="https://www.facebook.com/sstoves">Facebook</a>
-                </li>
-                <li className={styles.navItem}>
-                    <a href="https://github.com/SeanStoves">GitHub</a>
-                </li>
-                <li className={styles.navItem}>
-                    <a href="https://www.linkedin.com/in/seanstoves/">LinkedIn</a>
-                </li>
-            </ul>
+            <Navbar sticky="bottom" collapseOnSelect expand="lg" bg="dark" variant="dark">
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="me-auto">
+                        <Nav.Link href="https://twitter.com/sstoves">Twitter</Nav.Link>
+                        <Nav.Link href="https://www.facebook.com/sstoves">Facebook</Nav.Link>
+                        <Nav.Link href="https://github.com/SeanStoves">GitHub</Nav.Link>
+                        <Nav.Link href="https://www.linkedin.com/in/seanstoves">LinkedIn</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
         </footer>
     )
 }
