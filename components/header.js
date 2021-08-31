@@ -2,7 +2,8 @@ import Link from 'next/link'
 import { signIn, signOut, useSession } from 'next-auth/client'
 import styles from '../styles/Header.module.css'
 import Head from "next/head";
-import { Navbar, Nav, Container} from "react-bootstrap";
+import {Navbar, Nav, NavDropdown} from "react-bootstrap";
+import DropdownMenu from "react-bootstrap/DropdownMenu";
 
 // The approach used in this component shows how to build a sign in and sign out
 // component that works on pages which support both client and server side
@@ -42,11 +43,18 @@ export default function Header () {
                                 }} href="/api/auth/signin">Sign In</Nav.Link>
                             </>}
                             {session && <>
-                                {session.user.image && <span style={{backgroundImage: `url(${session.user.image})` }} className={styles.avatar}/>}
-                                <Nav.Link className={styles.button} onSelect={(e) => {
-                                    e.preventDefault()
-                                    signOut()
-                                }} href="/api/auth/signout">Sign Out</Nav.Link>
+                                <NavDropdown eventKey={1} id="PersonalMenu" title={
+                                    <div className="pull-left">
+                                        <img className={styles.avatar}
+                                             src={session.user.image}
+                                             alt="Click to see Personal Options"
+                                        />
+                                    </div>
+                                }>
+                                    <NavDropdown.Header>Welcome<br/><b>{session.user.name}</b></NavDropdown.Header>
+                                    <NavDropdown.Divider />
+                                    <NavDropdown.Item href="/api/auth/signout">Sign Out</NavDropdown.Item>
+                                </NavDropdown>
                             </>}
                         </Nav>
                     </Navbar.Collapse>
@@ -58,16 +66,6 @@ export default function Header () {
 
                 </p>
             </div>
-            <nav>
-                <ul className={styles.navItems}>
-                    <li className={styles.navItem}><Link href="/"><a>Home</a></Link></li>
-                    <li className={styles.navItem}><Link href="/client"><a>Client</a></Link></li>
-                    <li className={styles.navItem}><Link href="/server"><a>Server</a></Link></li>
-                    <li className={styles.navItem}><Link href="/protected"><a>Protected</a></Link></li>
-                    <li className={styles.navItem}><Link href="/api-example"><a>API</a></Link></li>
-                    <li className={styles.navItem}><Link href="/carousel"><a>Testing Bootstrap</a></Link></li>
-                </ul>
-            </nav>
         </header>
     )
 }
