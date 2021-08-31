@@ -1,5 +1,5 @@
 import Link from "next/link"
-import styles from "./footer.module.css"
+import styles from "../styles/footer.module.css"
 import packageJSON from "../package.json"
 
 export default function Footer() {
@@ -8,21 +8,16 @@ export default function Footer() {
             <hr />
             <ul className={styles.navItems}>
                 <li className={styles.navItem}>
-                    <a href="https://next-auth.js.org">Documentation</a>
+                    <a href="https://twitter.com/sstoves">Twitter</a>
                 </li>
                 <li className={styles.navItem}>
-                    <a href="https://www.npmjs.com/package/next-auth">NPM</a>
+                    <a href="https://www.facebook.com/sstoves">Facebook</a>
                 </li>
                 <li className={styles.navItem}>
-                    <a href="https://github.com/nextauthjs/next-auth-example">GitHub</a>
+                    <a href="https://github.com/SeanStoves">GitHub</a>
                 </li>
                 <li className={styles.navItem}>
-                    <Link href="/policy">
-                        <a>Policy</a>
-                    </Link>
-                </li>
-                <li className={styles.navItem}>
-                    <em>next-auth@{packageJSON.dependencies["next-auth"]}</em>
+                    <a href="https://www.linkedin.com/in/seanstoves/">LinkedIn</a>
                 </li>
             </ul>
         </footer>

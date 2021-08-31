@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { signIn, signOut, useSession } from 'next-auth/client'
-import styles from './header.module.css'
+import styles from '../styles/header.module.css'
 import Head from "next/head";
 
 
