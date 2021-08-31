@@ -3,17 +3,22 @@
 # IntelliJ
 **/.idea
 
-# dependencies
+# NodeJS
 **/node_modules
+**/.package-lock.json
+**/package-lock.json
+
+# NextJS
+**/.next/
+**/out/
+
+
+# Dependencies
 **/.pnp
 .pnp.js
 
 # testing
 **/coverage
-
-# next.js
-**/.next/
-**/out/
 
 # production
 **/build
