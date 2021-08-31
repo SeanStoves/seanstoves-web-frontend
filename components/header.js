@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import { signIn, signOut, useSession } from 'next-auth/client'
-import styles from '../styles/header.module.css'
+import styles from '../styles/Header.module.css'
 import Head from "next/head";
-
+import {Navbar, Nav, NavDropdown} from "react-bootstrap";
+import DropdownMenu from "react-bootstrap/DropdownMenu";
 
 // The approach used in this component shows how to build a sign in and sign out
 // component that works on pages which support both client and server side
@@ -20,50 +21,51 @@ export default function Header () {
             <noscript>
                 <style>{`.nojs-show { opacity: 1; top: 0; }`}</style>
             </noscript>
+
+            <Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
+
+                    <Navbar.Brand href="#home">Sean Stoves</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="me-auto">
+                            <Nav.Link href="/">Home</Nav.Link>
+                            <Nav.Link href="/client">Client</Nav.Link>
+                            <Nav.Link href="/server">Server</Nav.Link>
+                            <Nav.Link href="/protected">Protected</Nav.Link>
+                            <Nav.Link href="/api-example">API</Nav.Link>
+                            <Nav.Link href="/carousel">Bootstrap Test</Nav.Link>
+                        </Nav>
+                        <Nav>
+                            {!session && <>
+                                <Nav.Link className={styles.buttonPrimary} onSelect={(e) => {
+                                    e.preventDefault()
+                                    signIn()
+                                }} href="/api/auth/signin">Sign In</Nav.Link>
+                            </>}
+                            {session && <>
+                                <NavDropdown eventKey={1} id="PersonalMenu" title={
+                                    <div className="pull-left">
+                                        <img className={styles.avatar}
+                                             src={session.user.image}
+                                             alt="Click to see Personal Options"
+                                        />
+                                    </div>
+                                }>
+                                    <NavDropdown.Header>Welcome<br/><b>{session.user.name}</b></NavDropdown.Header>
+                                    <NavDropdown.Divider />
+                                    <NavDropdown.Item href="/api/auth/signout">Sign Out</NavDropdown.Item>
+                                </NavDropdown>
+                            </>}
+                        </Nav>
+                    </Navbar.Collapse>
+
+            </Navbar>
+
             <div className={styles.signedInStatus}>
                 <p className={`nojs-show ${(!session && loading) ? styles.loading : styles.loaded}`}>
-                    {!session && <>
-                        <span className={styles.notSignedInText}>You are not signed in</span>
-                        <a
-                            href={`/api/auth/signin`}
-                            className={styles.buttonPrimary}
-                            onClick={(e) => {
-                                e.preventDefault()
-                                signIn()
-                            }}
-                        >
-                            Sign in
-                        </a>
-                    </>}
-                    {session && <>
-                        {session.user.image && <span style={{backgroundImage: `url(${session.user.image})` }} className={styles.avatar}/>}
-                        <span className={styles.signedInText}>
-              <small>Signed in as</small><br/>
-              <strong>{session.user.email || session.user.name}</strong>
-              </span>
-                        <a
-                            href={`/api/auth/signout`}
-                            className={styles.button}
-                            onClick={(e) => {
-                                e.preventDefault()
-                                signOut()
-                            }}
-                        >
-                            Sign out
-                        </a>
-                    </>}
+
                 </p>
             </div>
-            <nav>
-                <ul className={styles.navItems}>
-                    <li className={styles.navItem}><Link href="/"><a>Home</a></Link></li>
-                    <li className={styles.navItem}><Link href="/client"><a>Client</a></Link></li>
-                    <li className={styles.navItem}><Link href="/server"><a>Server</a></Link></li>
-                    <li className={styles.navItem}><Link href="/protected"><a>Protected</a></Link></li>
-                    <li className={styles.navItem}><Link href="/api-example"><a>API</a></Link></li>
-                    <li className={styles.navItem}><Link href="/carousel"><a>Testing Bootstrap</a></Link></li>
-                </ul>
-            </nav>
         </header>
     )
 }
