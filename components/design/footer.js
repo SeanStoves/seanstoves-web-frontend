@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-no-target-blank */
 import styles from "../../styles/Footer.module.css"
-import {Col, Container, Row} from "react-bootstrap";
+import {Col, Container, Row, Button} from "react-bootstrap";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import * as ReactIcons from "react-icons/fa";
 import {FaAt, FaPhone, FaMapMarkedAlt} from "react-icons/fa";
-
+import Link from 'next/link';
 
 export default function Footer() {
    const [ contact , setContact ] = useState([])
@@ -33,7 +33,13 @@ export default function Footer() {
             <Container fluid>
                 <Row>
                     <Col></Col>
-                    <Col></Col>
+                    <Col>
+                        <Link href="https://www.dropbox.com/s/8ii0ni23zaxh0u8/SeanStoves-Resume2019.pdf?dl=1">
+                            <Button variant="outline-light" size="lg">
+                                Download Resume
+                            </Button>
+                        </Link>
+                    </Col>
                     <Col><div className={styles.ftInfo}><div className={styles.SvgIcons}><FaAt/><p>{contact.email}</p></div><div className={styles.SvgIcons}><FaPhone/><p>{contact.phone}</p></div></div></Col>
                     <Col><div className={styles.ftInfo}><div className={styles.SvgIcons}><FaMapMarkedAlt/><p>{contact.address?.street}<br/>{contact.address?.city}, {contact.address?.state}<br/>{contact.address?.zip}</p></div></div></Col>
                     <Col className="align-items-center">

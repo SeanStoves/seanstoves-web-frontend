@@ -24,10 +24,9 @@ export default function Header () {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link href="/client">Client</Nav.Link>
-                            <Nav.Link href="/server">Server</Nav.Link>
-                            <Nav.Link href="/protected">Protected</Nav.Link>
-                            <Nav.Link href="/api-example">API</Nav.Link>
+                            <Nav.Link href="/past-work">Past Work</Nav.Link>
+                            <Nav.Link href="/blog">Blog</Nav.Link>
+                            <Nav.Link href="#">Gaming</Nav.Link>
                         </Nav>
                         <Nav>
                             {!session && <>
