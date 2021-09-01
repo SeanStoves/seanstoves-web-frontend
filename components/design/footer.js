@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import styles from "../../styles/Footer.module.css"
 import {Col, Container, Row} from "react-bootstrap";
 import React, {useEffect, useState} from "react";
