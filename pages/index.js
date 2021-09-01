@@ -1,7 +1,6 @@
 import React from 'react'
 import { useSession } from 'next-auth/client'
 import Layout from '../components/design/layout'
-import AccessDenied from '../components/error-pages/access-denied'
 
 export default function Page () {
   const [ session, loading ] = useSession()
@@ -9,14 +8,11 @@ export default function Page () {
   // When rendering client side don't display anything until loading is complete
   if (loading) return null
 
-  // If no session exists, display access denied message
-  if (!session) { return  <Layout><AccessDenied/></Layout> }
-
   // If session exists, display content
   return (
       <Layout>
-        <h1>Protected Page</h1>
-        <p><strong>Welcome {session.user.name}</strong></p>
+        <h1>Sean Stoves</h1>
+        <p><strong>Welcome!</strong></p>
       </Layout>
   )
 }
