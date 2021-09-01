@@ -1,4 +1,4 @@
-import Layout from '../components/layout'
+import Layout from '../components/design/layout'
 import {Carousel} from "react-bootstrap";
 import React from "react";
 

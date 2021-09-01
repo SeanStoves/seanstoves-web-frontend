@@ -1,4 +1,4 @@
-import styles from "../styles/Footer.module.css"
+import styles from "../../styles/Footer.module.css"
 import {Col, Container, Row} from "react-bootstrap";
 import React, {useEffect, useState} from "react";
 import axios from "axios";

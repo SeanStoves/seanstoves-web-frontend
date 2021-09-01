@@ -1,5 +1,5 @@
 import { signIn, useSession } from 'next-auth/client'
-import headStyle from '../styles/Header.module.css'
+import headStyle from '../../styles/Header.module.css'
 import Head from "next/head";
 import {Navbar, Nav, NavDropdown, Image } from "react-bootstrap";
 
