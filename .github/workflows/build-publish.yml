@@ -4,12 +4,9 @@ on:
   push:
     branches:
       - "main"
-      
-  workflow_dispatch:
 
 jobs:
   next-build:
-    if: ${{ github.event_name == 'workflow_dispatch' }}       # Run only if triggered manually
     runs-on: ubuntu-latest
     container: node:lts          # Use node LTS container version, same as Dockerfile base image
     steps:
@@ -29,6 +26,9 @@ jobs:
     needs: next-build        # Job depends on next-build(above) job
     runs-on: ubuntu-latest
     steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       - name: Checkout
         uses: actions/checkout@v2
       - name: Download next build       # Download the above uploaded artifact
@@ -47,7 +47,7 @@ jobs:
           export TAG=$([[ $CURRENT_BRANCH == "main" ]] && echo "latest" || echo $CURRENT_BRANCH)
           export GITHUB_REF_IMAGE=${{ secrets.REGISTRY_URL }}/$GITHUB_REPOSITORY:$GITHUB_SHA
           export GITHUB_BRANCH_IMAGE=${{ secrets.REGISTRY_URL }}/$GITHUB_REPOSITORY:$TAG
-          docker build -t $GCR_IMAGE -t $GITHUB_REF_IMAGE -t $GITHUB_BRANCH_IMAGE .
+          docker build -t seanstoves-web-frontend -t ${{ steps.date.outputs.date }} .
           echo "Pushing Image to Chaotic Logic Container Registry"
           docker push $GITHUB_REF_IMAGE
           docker push $GITHUB_BRANCH_IMAGE
