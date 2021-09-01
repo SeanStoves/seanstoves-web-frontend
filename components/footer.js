@@ -13,12 +13,17 @@ import {
 } from "react-icons/fa";
 
 export default function Footer() {
-    axios.get('./contact-info.json')
-        .then(response => {
-            console.log(response.data)
-        })
+   const [ contact , setContact ] = useState()
 
-    console.log('Footer created');
+    // Fetch content from protected route
+    useEffect(()=>{
+        console.log('useEffect called');
+        axios.get('./contact-info.json')
+            .then(response => {
+                console.log(response)
+                setContact(response.data)
+            })
+    }, [])
 
 
     return (
