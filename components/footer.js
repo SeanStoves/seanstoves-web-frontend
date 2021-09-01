@@ -13,7 +13,7 @@ export default function Footer() {
         const elems = [];
         for (const social of (contact.social || [])) {
             const Icon = React.createElement(ReactIcons[social.icon], null);
-            elems.push(<li key={social.icon}><a target="_blank" href={social.link}>{Icon}</a></li>)
+            elems.push(<li key={social.icon}><a target="_blank" href={social.url}>{Icon}</a></li>)
         }
         return elems;
     }
