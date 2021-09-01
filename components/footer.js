@@ -3,7 +3,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import * as ReactIcons from "react-icons/fa";
-import {FaAt, FaPhone, FaMapPin} from "react-icons/fa";
+import {FaAt, FaPhone, FaMapMarkedAlt} from "react-icons/fa";
 
 
 export default function Footer() {
@@ -34,7 +34,7 @@ export default function Footer() {
                     <Col></Col>
                     <Col></Col>
                     <Col><p className={styles.ftInfo}><FaAt/>&nbsp;{contact.email}<br/><FaPhone/>&nbsp;{contact.phone}</p></Col>
-                    <Col><p className={styles.ftInfo}><FaMapPin/>&nbsp;{(contact.address || {}).street}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{(contact.address || {}).city}, {(contact.address || {}).state}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{(contact.address || {}).zip}</p></Col>
+                    <Col><p className={styles.ftInfo}><FaMapMarkedAlt/>&nbsp;{(contact.address || {}).street}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{(contact.address || {}).city}, {(contact.address || {}).state}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{(contact.address || {}).zip}</p></Col>
                     <Col className="align-items-center">
                         <ul className={styles.SocialNetwork}>
                             <SocialList />
