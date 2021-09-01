@@ -45,8 +45,8 @@ jobs:
         run: |
           export CURRENT_BRANCH=${GITHUB_REF#refs/heads/}
           export TAG=$([[ $CURRENT_BRANCH == "main" ]] && echo "latest" || echo $CURRENT_BRANCH)
-          export GITHUB_REF_IMAGE=${{ secrets.REGISTRY_URL }}/$GITHUB_REPOSITORY:$GITHUB_SHA
-          export GITHUB_BRANCH_IMAGE=${{ secrets.REGISTRY_URL }}/$GITHUB_REPOSITORY:$TAG
-          docker build -t seanstoves-web-frontend .
+          export GITHUB_REF_IMAGE=${{ secrets.REGISTRY_URL }}/seanstoves_web_frontend:$GITHUB_SHA
+          export GITHUB_BRANCH_IMAGE=${{ secrets.REGISTRY_URL }}/seanstoves_web_frontend:$TAG
+          docker build -t seanstoves_web_frontend .
           echo "Pushing Image to Chaotic Logic Container Registry"
           docker push $GITHUB_BRANCH_IMAGE
