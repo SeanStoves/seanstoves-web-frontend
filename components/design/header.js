@@ -28,7 +28,6 @@ export default function Header () {
                             <Nav.Link href="/server">Server</Nav.Link>
                             <Nav.Link href="/protected">Protected</Nav.Link>
                             <Nav.Link href="/api-example">API</Nav.Link>
-                            <Nav.Link href="/carousel">Bootstrap Test</Nav.Link>
                         </Nav>
                         <Nav>
                             {!session && <>
