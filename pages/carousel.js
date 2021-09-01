@@ -1,47 +1,36 @@
 import Layout from '../components/layout'
 import {Carousel} from "react-bootstrap";
-import React from "react";
+import React, {useEffect, useState} from "react";
+import axios from "axios";
+import {useSession} from "next-auth/client";
+import AccessDenied from "../components/access-denied";
 
 export default function Page () {
+    const [ session, loading ] = useSession()
+    const [ contact , setContact ] = useState()
+
+    // Fetch content from protected route
+    useEffect(()=>{
+        axios.get('./contact-info.json')
+            .then(response => {
+                console.log(response)
+                setContact(response.data)
+            })
+    })
+
+    // When rendering client side don't display anything until loading is complete
+    if (loading) return null
+
+    // If no session exists, display access denied message
+    if (!session) { return  <Layout><AccessDenied/></Layout> }
+
     return (
         <Layout>
-            <Carousel>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="http://placehold.it/800x400?text=800x400"
-                        alt="First slide"
-                    />
-                    <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="http://placehold.it/800x400?text=800x400"
-                        alt="Third slide"
-                    />
-
-                    <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="http://placehold.it/800x400?text=800x400"
-                        alt="Third slide"
-                    />
-
-                    <Carousel.Caption>
-                        <h3>Third slide label</h3>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
+        <div>
+            <ul>
+                {contact.map(contact => (<li>{contact.address.street}</li>))}
+            </ul>
+        </div>
         </Layout>
     )
 }
