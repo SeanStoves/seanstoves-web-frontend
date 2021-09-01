@@ -1,12 +1,9 @@
 import { signIn, useSession } from 'next-auth/client'
-import styles from '../styles/Header.module.css'
+import headStyle from '../styles/Header.module.css'
 import Head from "next/head";
-import {Navbar, Nav, NavDropdown} from "react-bootstrap";
+import {Navbar, Nav, NavDropdown, Image } from "react-bootstrap";
 
 
-// The approach used in this component shows how to build a sign in and sign out
-// component that works on pages which support both client and server side
-// rendering, and avoids any flash incorrect content on initial page load.
 export default function Header () {
     const [ session, loading ] = useSession()
 
@@ -22,7 +19,6 @@ export default function Header () {
             </noscript>
 
             <Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
-
                     <Navbar.Brand href="#home">Sean Stoves</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
@@ -36,15 +32,15 @@ export default function Header () {
                         </Nav>
                         <Nav>
                             {!session && <>
-                                <Nav.Link className={styles.buttonPrimary} onSelect={(e) => {
+                                <Nav.Link className={headStyle.buttonPrimary} onSelect={(e) => {
                                     e.preventDefault()
                                     signIn()
                                 }} href="/api/auth/signin">Sign In</Nav.Link>
                             </>}
                             {session && <>
-                                <NavDropdown eventKey={1} id="PersonalMenu" title={
+                                <NavDropdown eventkey={1} id="PersonalMenu" title={
                                     <div className="pull-left">
-                                        <img className={styles.avatar}
+                                        <Image className={headStyle.avatar}
                                              src={session.user.image}
                                              alt="Click to see Personal Options"
                                         />
@@ -57,13 +53,10 @@ export default function Header () {
                             </>}
                         </Nav>
                     </Navbar.Collapse>
-
             </Navbar>
 
-            <div className={styles.signedInStatus}>
-                <p className={`nojs-show ${(!session && loading) ? styles.loading : styles.loaded}`}>
-
-                </p>
+            <div className={headStyle.signedInStatus}>
+                <p className={`nojs-show ${(!session && loading) ? headStyle.loading : headStyle.loaded}`}></p>
             </div>
         </header>
     )
