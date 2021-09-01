@@ -11,6 +11,7 @@ import {
     FaDAndD,
     FaSteam
 } from "react-icons/fa";
+import {useSession} from "next-auth/client";
 
 export default function Footer() {
    const [ contact , setContact ] = useState()
@@ -25,14 +26,12 @@ export default function Footer() {
             })
     }, [])
 
-
     return (
         <footer className={styles.footer}>
             <hr/>
             <Container fluid>
                 <Row>
-                    <Col>
-                    </Col>
+                    <Col></Col>
                     <Col></Col>
                     <Col></Col>
                     <Col></Col>

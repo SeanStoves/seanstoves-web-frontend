@@ -1,19 +1,21 @@
-[{
-  "email": "sean@seanstoves.com",
-  "address": {
-    "street": "204 W White Street",
-    "city": "Summit Hill",
-    "state": "Pa",
-    "zip": "18250"
-  },
-  "phone": "+1 570.778.5064",
-  "social": {
-    "FaFacebookF": "https://www.facebook.com/sstoves",
-    "FaLinkedinIn": "https://www.linkedin.com/in/seanstoves",
-    "FaTwitter": "https://twitter.com/sstoves",
-    "FaGithub": "https://github.com/SeanStoves",
-    "FaDAndD": "https://www.dndbeyond.com/members/SolaoBajiuik",
-    "FaTwitch": "https://twitch.tv/solaobajiuik",
-    "FaSteam": "https://steamcommunity.com/id/solaobajiuik"
+[
+  {
+    "email": "sean@seanstoves.com",
+    "address": {
+      "street": "204 W White Street",
+      "city": "Summit Hill",
+      "state": "Pa",
+      "zip": "18250"
+    },
+    "phone": "+1 570.778.5064",
+    "social": {
+      "FaFacebookF": "https://www.facebook.com/sstoves",
+      "FaLinkedinIn": "https://www.linkedin.com/in/seanstoves",
+      "FaTwitter": "https://twitter.com/sstoves",
+      "FaGithub": "https://github.com/SeanStoves",
+      "FaDAndD": "https://www.dndbeyond.com/members/SolaoBajiuik",
+      "FaTwitch": "https://twitch.tv/solaobajiuik",
+      "FaSteam": "https://steamcommunity.com/id/solaobajiuik"
+    }
   }
-}]
+]
