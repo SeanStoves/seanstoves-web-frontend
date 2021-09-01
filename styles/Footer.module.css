@@ -40,3 +40,12 @@
 .SocialNetwork svg :hover a svg {
     opacity: 0.5;
 }
+
+.ft-info p {
+    display: block;
+    color: #fff;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 2.1;
+    letter-spacing: .8px;
+}

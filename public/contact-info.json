@@ -1,4 +1,4 @@
-[
+
   {
     "email": "sean@seanstoves.com",
     "address": {
@@ -8,14 +8,13 @@
       "zip": "18250"
     },
     "phone": "+1 570.778.5064",
-    "social": {
-      "FaFacebookF": "https://www.facebook.com/sstoves",
-      "FaLinkedinIn": "https://www.linkedin.com/in/seanstoves",
-      "FaTwitter": "https://twitter.com/sstoves",
-      "FaGithub": "https://github.com/SeanStoves",
-      "FaDAndD": "https://www.dndbeyond.com/members/SolaoBajiuik",
-      "FaTwitch": "https://twitch.tv/solaobajiuik",
-      "FaSteam": "https://steamcommunity.com/id/solaobajiuik"
-    }
+    "social": [
+      { "icon": "FaFacebookF", "url": "https://www.facebook.com/sstoves" },
+      { "icon": "FaLinkedinIn", "url": "https://www.linkedin.com/in/seanstoves" },
+      { "icon": "FaTwitter", "url": "https://twitter.com/sstoves" },
+      { "icon": "FaGithub", "url": "https://github.com/SeanStoves" },
+      { "icon": "FaDAndD", "url": "https://www.dndbeyond.com/members/SolaoBajiuik" },
+      { "icon": "FaTwitch", "url": "https://twitch.tv/solaobajiuik" },
+      { "icon": "FaSteam", "url": "https://steamcommunity.com/id/solaobajiuik" }
+    ]
   }
-]
