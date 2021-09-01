@@ -41,11 +41,29 @@
     opacity: 0.5;
 }
 
-.ft-info p {
-    display: block;
+.ftInfo {
+    display: flex;
+    flex-direction: column;
     color: #fff;
     font-weight: 500;
     font-size: 15px;
-    line-height: 2.1;
-    letter-spacing: .8px;
+    /* line-height: 2.1; */
+}
+
+.ftInfo > div {
+    display: flex;
+    margin-bottom: .5rem;
+}
+
+.ftInfo p {
+    margin-bottom: 0;
+}
+
+.ftInfo svg {
+    margin-right: .5rem;
+    /* Font-size / 4 */
+    margin: 3.75px;
+    /* Font-size */
+    width: 15px;
+    height: 15px;
 }
