@@ -33,8 +33,8 @@ export default function Footer() {
                 <Row>
                     <Col></Col>
                     <Col></Col>
-                    <Col><div className={styles.ftInfo}><div><FaAt/><p>{contact.email}</p></div><div><FaPhone/><p>{contact.phone}</p></div></div></Col>
-                    <Col><div className={styles.ftInfo}><div><FaMapMarkedAlt/><p>{contact.address?.street}<br/>{contact.address?.city}, {contact.address?.state}<br/>{contact.address?.zip}</p></div></div></Col>
+                    <Col><div className={styles.ftInfo}><div className={styles.SvgIcons}><FaAt/><p>{contact.email}</p></div><div className={styles.SvgIcons}><FaPhone/><p>{contact.phone}</p></div></div></Col>
+                    <Col><div className={styles.ftInfo}><div className={styles.SvgIcons}><FaMapMarkedAlt/><p>{contact.address?.street}<br/>{contact.address?.city}, {contact.address?.state}<br/>{contact.address?.zip}</p></div></div></Col>
                     <Col className="align-items-center">
                         <ul className={styles.SocialNetwork}>
                             <SocialList />
