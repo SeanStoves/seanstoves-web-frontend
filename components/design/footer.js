@@ -32,8 +32,7 @@ export default function Footer() {
             <hr/>
             <Container fluid>
                 <Row>
-                    <Col></Col>
-                    <Col>
+                    <Col md="4" className="text-center">
                         <Link href="https://www.dropbox.com/s/8ii0ni23zaxh0u8/SeanStoves-Resume2019.pdf?dl=1">
                             <Button variant="outline-light" size="lg">
                                 Download Resume
