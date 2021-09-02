@@ -1,4 +1,4 @@
-name: Build, Publish & Deploy
+name: Build and Deploy to Live Environment
 
 on:
   push:
@@ -8,24 +8,32 @@ on:
       - '.github/**'
 
 jobs:
+  #######
+  #   Build the Artifact
+  #     TODO: Add Testing to this process
+  #######
   build:
     runs-on: ubuntu-latest
-    container: node:lts          # Use node LTS container version, same as Dockerfile base image
+    container: node:lts
     steps:
       - name: Checkout
-        uses: actions/checkout@v2       # Checkout the code
-      - run: npm ci            #install dependencies
+        uses: actions/checkout@v2
+      - run: npm ci
       - run: npm run build
-      - name: Upload Next build          # Upload the artifact
+      - name: Upload Next build
         uses: actions/upload-artifact@v2
         with:
           name: build
           path: |
             .next
             public
-          retention-days: 7         # artifact retention duration, can be upto 30 days
-  docker:
-    needs: next-build        # Job depends on next-build(above) job
+          retention-days: 7
+
+  #######
+  #   Publish to Private Docker Registry
+  #######
+  publish:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Get current date
@@ -33,7 +41,7 @@ jobs:
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Download next build       # Download the above uploaded artifact
+      - name: Download next build
         uses: actions/download-artifact@v2
         with:
           name: build
@@ -53,13 +61,14 @@ jobs:
           echo "Pushing Image to Chaotic Logic Container Registry"
           docker push $GITHUB_BRANCH_IMAGE
 
+  #######
+  #   Deploy via Portainer API
+  #######
   deploy:
-    # The type of runner that the job will run on
+    needs: publish
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Runs a single command using the runners shell
       - name: Update Portainer Container
         run: |
           API_URI="https://panel.chaoticlogic.us"
