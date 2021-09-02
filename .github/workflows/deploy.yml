@@ -21,5 +21,5 @@ jobs:
       # Runs a single command using the runners shell
       - name: Authentication Token
         run: |
-          AUTH_TOKEN = `curl -X POST $API_URI/api/auth -H \"Content-Type: application/json\" -d \"{\\\"Username\\\": \\\"${{ secrets.PORTAINER_USER}}\\\", \\\"Password\\\": \\\"${{ secrets.PORTAINER_PASSWORD}}\\\"}\" | jq -r \".jwt\" | tr -d \"\\n\"`
+          AUTH_TOKEN=`curl -X POST $API_URI/api/auth -H \"Content-Type: application/json\" -d \"{\\\"Username\\\": \\\"${{ secrets.PORTAINER_USER}}\\\", \\\"Password\\\": \\\"${{ secrets.PORTAINER_PASSWORD}}\\\"}\" | jq -r \".jwt\" | tr -d \"\\n\"`
           echo $AUTH_TOKEN
