@@ -25,6 +25,7 @@ jobs:
   #     TODO: Add Testing to this process
   #######
   build:
+    needs: cleanup
     runs-on: ubuntu-latest
     container: node:lts
     steps:
