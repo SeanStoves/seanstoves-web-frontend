@@ -21,7 +21,7 @@ export default function Footer() {
 
     // Fetch content from protected route
     useEffect(()=>{
-        axios.get('./contact-info.json')
+        axios.get('/contact-info.json')
             .then(response => {
                 setContact(response.data)
             })
