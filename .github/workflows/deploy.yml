@@ -1,0 +1,24 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Deploy
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+env:
+  API_URL: "https://panel.chaoticlogic.us"
+  
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  deploy:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Runs a single command using the runners shell
+      - name: Authentication Token
+        run: "AUTH_TOKEN = `curl -X POST $API_URI/api/auth -H \"Content-Type: application/json\" -d \"{\\\"Username\\\": \\\"${{ secrets.PORTAINER_USER}}\\\", \\\"Password\\\": \\\"${{ secrets.PORTAINER_PASSWORD}}\\\"}\" | jq -r \".jwt\" | tr -d \"\\n\"`"
+        run: "echo $AUTH_TOKEN"
