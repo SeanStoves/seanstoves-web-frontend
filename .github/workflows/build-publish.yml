@@ -40,7 +40,7 @@ jobs:
           path: |
             .next
             public
-          retention-days: 7
+          retention-days: 1
 
   #######
   #   Publish to Private Docker Registry
