@@ -5,9 +5,6 @@ name: Deploy
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
-env:
-  API_URL: "https://panel.chaoticlogic.us"
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -21,5 +18,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: Authentication Token
         run: |
+          API_URL="https://panel.chaoticlogic.us"
           AUTH_TOKEN=`curl -X POST $API_URI/api/auth -H \"Content-Type: application/json\" -d \"{\\\"Username\\\": \\\"${{ secrets.PORTAINER_USER}}\\\", \\\"Password\\\": \\\"${{ secrets.PORTAINER_PASSWORD}}\\\"}\" | jq -r \".jwt\" | tr -d \"\\n\"`
           echo $AUTH_TOKEN
