@@ -1,10 +1,19 @@
 import Layout from '../../components/design/layout'
 import Link from 'next/link';
 import Image from 'next/image';
+import { Card } from 'react-bootstrap'
+
 
 export default function Page () {
         return (
         <Layout>
+            <Card style={{ width: '18rem' }} variant="dark" bg="dark">
+                <Card.Header>
+                    <h1>Test Header</h1>
+                </Card.Header>
+                <p>Test</p>
+            </Card>
+
             <div className="content-block">
                 <div className="post-thubnail">
                     <Link href="/blog/read?id=1">
