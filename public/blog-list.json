@@ -1,0 +1,26 @@
+{
+  "post1" : {
+    "postId": 1,
+    "title":  "My day",
+    "content" :  "blalbvblblblblblblallksdlmalmdksdkasd",
+    "createdAt" :  "2021-05-06 19:40 EST",
+    "author" :  "Sean Stoves",
+    "image" :  "http://placehold.it/800x400?text=My Day"
+  },
+  "post2" : {
+    "postId": 2,
+    "title":  "This right here",
+    "content" :  "blalbvblblblblblblallksdlmalmdksdkasd",
+    "createdAt" :  "2021-05-07 12:00 EST",
+    "author" :  "Sean Stoves",
+    "image" :  "http://placehold.it/800x400?text=This Right Here"
+  },
+  "post3" : {
+    "postId": 3,
+    "title":  "Min vackra",
+    "content" :  "blalbvblblblblblblallksdlmalmdksdkasd",
+    "createdAt" :  "2021-05-08 19:38 EST",
+    "author" :  "Sean Stoves",
+    "image" :  "http://placehold.it/800x400?text=Min Vackra"
+  }
+}
