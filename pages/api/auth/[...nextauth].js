@@ -11,7 +11,7 @@ const options = {
     jwt: {
       signingKey: process.env.JWT_SIGNING_PRIVATE_KEY
     },
-    debug: true
+    debug: process.env.DEBUGGING ?? false
 }
 
 export default (req, res) => NextAuth(req, res, options)
