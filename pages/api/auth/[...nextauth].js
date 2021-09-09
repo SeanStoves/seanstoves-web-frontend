@@ -8,7 +8,10 @@ const options = {
             clientSecret: process.env.GOOGLE_SECRET
         }),
     ],
-    debug: false
+    jwt: {
+      signingKey: process.env.JWT_SIGNING_PRIVATE_KEY
+    },
+    debug: true
 }
 
 export default (req, res) => NextAuth(req, res, options)
