@@ -2,9 +2,13 @@ import Layout from '../../components/design/layout'
 import Link from 'next/link';
 import Image from 'next/image';
 import { Card } from 'react-bootstrap'
+import {useSession} from "next-auth/react";
 
 
 export default function Page () {
+    const { data: session, status } = useSession()
+    const loading = status === 'loading'
+
         return (
         <Layout>
             <Card style={{ width: '18rem' }} variant="dark" bg="dark">
