@@ -109,7 +109,6 @@
 
 # Lock files
 **/yarn.lock
-**/package-lock.json
 
 # IDE Project Files
 **/.idea
