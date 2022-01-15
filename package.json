@@ -1,25 +1,23 @@
 {
-  "name": "next-auth-typescript-example",
-  "version": "0.0.0",
+  "name": "seanstoves-web",
+  "version": "1.0.0",
   "private": true,
-  "description": "An example project for NextAuth.js using Typescript",
-  "repository": "https://github.com/nextauthjs/next-auth-typescript-example.git",
+  "description": "SeanStoves Private Website",
+  "repository": "https://github.com/SeanStoves/seanstoves-web.git",
   "bugs": {
-    "url": "https://github.com/nextauthjs/next-auth/issues"
+    "url": "https://github.com/SeanStoves/seanstoves-web/issues"
   },
-  "homepage": "http://next-auth-typescript-example.now.sh",
+  "homepage": "https://www.seanstoves.com",
   "main": "",
   "scripts": {
-    "dev": "next",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "types": "tsc --noEmit"
   },
-  "author": "Lluis Agusti <lluis@hey.com>",
+  "author": "Sean Stoves <sean@seanstoves.com>",
   "contributors": [
-    "Balázs Orbán <info@balazsorban.com>",
-    "Iain Collins <me@iaincollins.com>",
-    "Nico Domino <yo@ndo.dev>"
+    "Daniel DeCloet <djdecloet@gmail.com>"
   ],
   "license": "ISC",
   "prettier": {
