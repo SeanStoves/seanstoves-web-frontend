@@ -35,10 +35,7 @@ export default function Header() {
                     </Nav>
                     <Nav>
                         {!session && <>
-                            <Nav.Link className={headStyle.buttonPrimary} onSelect={(e) => {
-                                e.preventDefault()
-                                signIn("google")
-                            }} href="/api/auth/signin">Sign In</Nav.Link>
+                            <Nav.Link className={headStyle.buttonPrimary} onClick={() => signIn("google")}>Sign In</Nav.Link>
                         </>}
                         {session && <>
                             <NavDropdown eventkey={1} id="PersonalMenu" title={
