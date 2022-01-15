@@ -31,7 +31,6 @@ export default function Header() {
                         </NavDropdown>
                         <Nav.Link href="/blog">Blog</Nav.Link>
                         <Nav.Link href="#">Gaming</Nav.Link>
-                        <Nav.Link href="#">Test</Nav.Link>
                     </Nav>
                     <Nav>
                         {!session && <>
