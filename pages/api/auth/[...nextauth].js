@@ -1,8 +1,8 @@
 import NextAuth from 'next-auth'
 import GoogleProvider from "next-auth/providers/google";
 
-
-const options = {
+export default NextAuth({
+    // Configure one or more authentication providers
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_ID,
@@ -10,10 +10,8 @@ const options = {
         })
     ],
     jwt: {
-      signingKey: process.env.JWT_SIGNING_PRIVATE_KEY
+        signingKey: process.env.JWT_SIGNING_PRIVATE_KEY
     },
     debug: process.env.DEBUGGING ?? false,
     secret: process.env.SECRET
-}
-
-export default (req, res) => NextAuth(req, res, options)
+})
