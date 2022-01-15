@@ -110,9 +110,10 @@ const NavBar = () => {
                         <Box sx={{flexGrow: 0}}>
                             <Button
                                 key="SignIn"
+                                onClick={() => signIn("google")}
                                 sx={{color: 'white', display: 'block'}}
                             >
-                                <Typography textAlign="center" onClick={() => signIn("google")}>Sign-In</Typography>
+                                Login
                             </Button>
                         </Box>
                     </>}
