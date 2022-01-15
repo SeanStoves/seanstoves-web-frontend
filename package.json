@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "SeanStoves Private Website",
-  "repository": "https://github.com/SeanStoves/seanstoves-web.git",
+  "repository": "https://github.com/SeanStoves/seanstoves-web-frontend.git",
   "bugs": {
-    "url": "https://github.com/SeanStoves/seanstoves-web/issues"
+    "url": "https://github.com/SeanStoves/seanstoves-web-frontend/issues"
   },
   "homepage": "https://www.seanstoves.com",
   "main": "",
