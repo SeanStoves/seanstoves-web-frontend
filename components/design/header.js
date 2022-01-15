@@ -37,7 +37,7 @@ export default function Header() {
                         {!session && <>
                             <Nav.Link className={headStyle.buttonPrimary} onSelect={(e) => {
                                 e.preventDefault()
-                                signIn()
+                                signIn("google")
                             }} href="/api/auth/signin">Sign In</Nav.Link>
                         </>}
                         {session && <>
