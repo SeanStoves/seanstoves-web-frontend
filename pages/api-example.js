@@ -1,10 +1,6 @@
 import Layout from '../components/design/layout'
-import {useSession} from "next-auth/react";
 
 export default function Page () {
-    const { data: session, status } = useSession()
-    const loading = status === 'loading'
-
     return (
         <Layout>
             <h1>API Example</h1>

@@ -33,7 +33,7 @@ export default function Footer() {
             <Container fluid>
                 <Row>
                     <Col md="4" className="text-md-center text-lg-center">
-                        <Link href="https://www.dropbox.com/s/8ii0ni23zaxh0u8/SeanStoves-Resume2019.pdf?dl=1">
+                        <Link href="https://www.dropbox.com/s/8ii0ni23zaxh0u8/SeanStoves-Resume2019.pdf?dl=1" passHref>
                             <Button variant="outline-light" size="lg">
                                 Download Resume
                             </Button>

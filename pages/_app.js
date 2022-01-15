@@ -1,6 +1,8 @@
 import {SessionProvider} from "next-auth/react"
 import SSRProvider from 'react-bootstrap/SSRProvider';
 
+import '../scss/global.scss'
+
 export default function MyApp({
                                   Component,
                                   pageProps: {session, ...pageProps},

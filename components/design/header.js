@@ -5,7 +5,8 @@ import {Navbar, Nav, NavDropdown, Image} from "react-bootstrap";
 
 
 export default function Header() {
-    const {data: session} = useSession()
+    const { data: session, status } = useSession()
+    const loading = status === 'loading'
 
     return (
         <header>
