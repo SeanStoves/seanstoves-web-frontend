@@ -1,9 +1,9 @@
 import React from 'react'
-import { useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/react'
 import Layout from '../components/design/layout'
 
 export default function Page () {
-  const [ session, loading ] = useSession()
+  const { session, loading } = useSession()
 
   // When rendering client side don't display anything until loading is complete
   if (loading) return null

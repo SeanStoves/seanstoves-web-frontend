@@ -1,11 +1,11 @@
-import { signIn, useSession } from 'next-auth/client'
+import { signIn, useSession } from 'next-auth/react'
 import headStyle from '../../styles/Header.module.css'
 import Head from "next/head";
 import {Navbar, Nav, NavDropdown, Image } from "react-bootstrap";
 
 
 export default function Header () {
-    const [ session, loading ] = useSession()
+    const { session, loading } = useSession()
 
     return (
         <header>
