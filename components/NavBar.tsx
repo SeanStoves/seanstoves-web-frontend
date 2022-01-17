@@ -109,9 +109,10 @@ const NavBar = () => {
                     {!session && <>
                         <Box sx={{flexGrow: 0}}>
                             <Button
-                                key="SignIn"
-                                onClick={() => signIn("google")}
                                 sx={{color: 'white', display: 'block'}}
+                                variant="contained"
+                               // onClick={() => signIn("google")}
+                                onClick={() => {console.log("TestClick");}}
                             >
                                 Login
                             </Button>

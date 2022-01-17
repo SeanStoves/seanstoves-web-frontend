@@ -5,10 +5,12 @@ import theme from '../src/theme';
 import createEmotionCache from '../src/createEmotionCache';
 import NavBar from '../components/NavBar'
 import { SessionProvider } from 'next-auth/react';
+import {ThemeProvider} from "@mui/material";
 
 export default class MyDocument extends Document {
     render() {
         return (
+            <ThemeProvider theme={theme}>
             <SessionProvider>
             <Html lang="en">
                 <Head>
@@ -26,6 +28,7 @@ export default class MyDocument extends Document {
                 </body>
             </Html>
             </SessionProvider>
+            </ThemeProvider>
         );
     }
 }
