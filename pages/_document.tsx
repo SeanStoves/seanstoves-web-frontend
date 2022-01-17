@@ -10,7 +10,6 @@ import {ThemeProvider} from "@mui/material";
 export default class MyDocument extends Document {
     render() {
         return (
-            <ThemeProvider theme={theme}>
             <SessionProvider>
             <Html lang="en">
                 <Head>
@@ -22,13 +21,14 @@ export default class MyDocument extends Document {
                     {(this.props as any).emotionStyleTags}
                 </Head>
                 <body>
+                <ThemeProvider theme={theme}>
                 <NavBar />
                 <Main />
                 <NextScript />
+                </ThemeProvider>
                 </body>
             </Html>
             </SessionProvider>
-            </ThemeProvider>
         );
     }
 }
