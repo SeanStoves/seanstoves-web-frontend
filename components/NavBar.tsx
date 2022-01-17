@@ -47,7 +47,7 @@ const NavBar = () => {
                         component="div"
                         sx={{mr: 2, display: {xs: 'none', md: 'flex'}}}
                     >
-                        {process.env.SITE_NAME}
+                        Sean Stoves
                     </Typography>
 
                     <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
@@ -92,7 +92,7 @@ const NavBar = () => {
                         component="div"
                         sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}
                     >
-                        {process.env.SITE_NAME}
+                        Sean Stoves
                     </Typography>
                     <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
                         {pages.map((page) => (
@@ -111,8 +111,7 @@ const NavBar = () => {
                             <Button
                                 sx={{color: 'white', display: 'block'}}
                                 variant="contained"
-                               // onClick={() => signIn("google")}
-                                onClick={() => {console.log("TestClick");}}
+                                onClick={() => signIn("google")}
                             >
                                 Login
                             </Button>
@@ -123,7 +122,7 @@ const NavBar = () => {
                         <Box sx={{flexGrow: 0}}>
                             <Tooltip title="User Menu">
                                 <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
-                                    <Avatar alt="{{session.user.name}}" src="{{session.user.image}}"/>
+                                    <Avatar alt={session.user.name} src={session.user.image}/>
                                 </IconButton>
                             </Tooltip>
                             <Menu
