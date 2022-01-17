@@ -2,6 +2,8 @@ import {SessionProvider} from "next-auth/react"
 import type {AppProps} from "next/app"
 import {ThemeProvider} from "@mui/material";
 import theme from '../src/theme';
+import NavBar from "../components/NavBar";
+import * as React from "react";
 
 // Use the <SessionProvider> to improve performance and allow components that call
 // `useSession()` anywhere in your application to access the `session` object.
@@ -13,6 +15,7 @@ export default function App({Component, pageProps}: AppProps) {
                 // you have a short session maxAge time. Shown here with default values.
                 session={pageProps.session}
             >
+                <NavBar />
                 <Component {...pageProps} />
             </SessionProvider>
         </ThemeProvider>

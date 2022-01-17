@@ -3,13 +3,11 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
 import createEmotionCache from '../src/createEmotionCache';
 import NavBar from '../components/NavBar'
-import { SessionProvider } from 'next-auth/react';
 
 
 export default class MyDocument extends Document {
     render() {
         return (
-            <SessionProvider>
             <Html lang="en">
                 <Head>
                     <link rel="shortcut icon" href="/favicon.ico" />
@@ -18,23 +16,18 @@ export default class MyDocument extends Document {
                     {(this.props as any).emotionStyleTags}
                 </Head>
                 <body>
-                <NavBar />
                 <Main />
                 <NextScript />
                 </body>
             </Html>
-            </SessionProvider>
         );
     }
 }
 
 // TODO https://nextjs.org/docs/advanced-features/custom-app
 // TODO https://nextjs.org/docs/advanced-features/custom-document
-// TODO you should actually put the theme provider in _app.tsx
-// TODO and you shouldn't put a css file in the pages folder
 // TODO and in general move everything that doesn't have to do with the document in _app.tsx
 // TODO and you should put the getInitialProps as recommended in the docs in the class as static async getInitialProps
-// TODO one more change you shouldn't use any context provider in the _document.tsx
 
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with static-site generation (SSG).
