@@ -47,7 +47,7 @@ const NavBar = () => {
                         component="div"
                         sx={{mr: 2, display: {xs: 'none', md: 'flex'}}}
                     >
-                        Sean Stoves
+                        {process.env.NEXT_PUBLIC_SITE_NAME}
                     </Typography>
 
                     <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
@@ -92,7 +92,7 @@ const NavBar = () => {
                         component="div"
                         sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}
                     >
-                        Sean Stoves
+                        {process.env.NEXT_PUBLIC_SITE_NAME}
                     </Typography>
                     <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
                         {pages.map((page) => (
