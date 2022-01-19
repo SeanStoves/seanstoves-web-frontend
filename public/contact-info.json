@@ -1,0 +1,19 @@
+{
+  "email": "sean@seanstoves.com",
+  "address": {
+    "street": "204 W White Street",
+    "city": "Summit Hill",
+    "state": "Pa",
+    "zip": "18250"
+  },
+  "phone": "+1 570.778.5064",
+  "social": [
+    { "icon": "FaFacebookF", "url": "https://www.facebook.com/sstoves" },
+    { "icon": "FaLinkedinIn", "url": "https://www.linkedin.com/in/seanstoves" },
+    { "icon": "FaTwitter", "url": "https://twitter.com/sstoves" },
+    { "icon": "FaGithub", "url": "https://github.com/SeanStoves" },
+    { "icon": "FaDAndD", "url": "https://www.dndbeyond.com/members/SolaoBajiuik" },
+    { "icon": "FaTwitch", "url": "https://twitch.tv/solaobajiuik" },
+    { "icon": "FaSteam", "url": "https://steamcommunity.com/id/solaobajiuik" }
+  ]
+}
