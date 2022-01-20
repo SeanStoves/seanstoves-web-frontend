@@ -18,6 +18,9 @@ const Home: NextPage = () => {
             >
                 <Typography variant="h4" component="h1" gutterBottom>
                     MUI v5 + Next.js with TypeScript example
+                    <br/>
+                    <br/>
+                    <br/>
                 </Typography>
             </Box>
         </Container>

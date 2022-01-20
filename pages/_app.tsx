@@ -1,15 +1,17 @@
 import {SessionProvider} from "next-auth/react"
 import type {AppProps} from "next/app"
-import {ThemeProvider} from "@mui/material";
+import {CssBaseline, ThemeProvider} from "@mui/material";
 import theme from '../src/theme';
 import NavBar from "../components/NavBar";
 import * as React from "react";
+import Footer from "../components/Footer";
 
 // Use the <SessionProvider> to improve performance and allow components that call
 // `useSession()` anywhere in your application to access the `session` object.
 export default function App({Component, pageProps}: AppProps) {
     return (
         <ThemeProvider theme={theme}>
+            <CssBaseline />
             <SessionProvider
                 // Provider options are not required but can be useful in situations where
                 // you have a short session maxAge time. Shown here with default values.
@@ -17,6 +19,7 @@ export default function App({Component, pageProps}: AppProps) {
             >
                 <NavBar />
                 <Component {...pageProps} />
+                <Footer />
             </SessionProvider>
         </ThemeProvider>
     )
