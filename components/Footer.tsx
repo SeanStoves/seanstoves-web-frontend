@@ -84,25 +84,25 @@ const Footer = ({ classes }) => {
 
                     <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'} }} alignItems="left" justifyContent="left">
                         <Stack direction="row" spacing={2}>
-                            <Item><Link href="https://www.facebook.com/sstoves"><FontAwesomeIcon icon={faFacebookF} /></Link></Item>
-                            <Item><Link href="https://www.linkedin.com/in/seanstoves"><FontAwesomeIcon icon={faLinkedinIn} /></Link></Item>
-                            <Item><Link href="https://twitter.com/sstoves"><FontAwesomeIcon icon={faTwitter} /></Link></Item>
-                            <Item><Link href="https://github.com/SeanStoves"><FontAwesomeIcon icon={faGithub} /></Link></Item>
-                            <Item><Link href="https://www.dndbeyond.com/members/SolaoBajiuik"><FontAwesomeIcon icon={faDAndD} /></Link></Item>
-                            <Item><Link href="https://twitch.tv/solaobajiuik"><FontAwesomeIcon icon={faTwitch} /></Link></Item>
-                            <Item><Link href="https://steamcommunity.com/id/solaobajiuik"><FontAwesomeIcon icon={faSteam} /></Link></Item>
+                            <Item><Link target="_blank" rel="noopener" color="#fff" href="https://www.facebook.com/sstoves"><FontAwesomeIcon icon={faFacebookF} /></Link></Item>
+                            <Item><Link target="_blank" rel="noopener" color="#fff" href="https://www.linkedin.com/in/seanstoves"><FontAwesomeIcon icon={faLinkedinIn} /></Link></Item>
+                            <Item><Link target="_blank" rel="noopener" color="#fff" href="https://twitter.com/sstoves"><FontAwesomeIcon icon={faTwitter} /></Link></Item>
+                            <Item><Link target="_blank" rel="noopener" color="#fff" href="https://github.com/SeanStoves"><FontAwesomeIcon icon={faGithub} /></Link></Item>
+                            <Item><Link target="_blank" rel="noopener" color="#fff" href="https://www.dndbeyond.com/members/SolaoBajiuik"><FontAwesomeIcon icon={faDAndD} /></Link></Item>
+                            <Item><Link target="_blank" rel="noopener" color="#fff" href="https://twitch.tv/solaobajiuik"><FontAwesomeIcon icon={faTwitch} /></Link></Item>
+                            <Item><Link target="_blank" rel="noopener" color="#fff" href="https://steamcommunity.com/id/solaobajiuik"><FontAwesomeIcon icon={faSteam} /></Link></Item>
                         </Stack>
                     </Box>
 
                     <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
                         <Stack direction="row" spacing={2}>
-                            <Item><Link href="https://www.facebook.com/sstoves"><FontAwesomeIcon icon={faFacebookF} /></Link></Item>
-                            <Item><Link href="https://www.linkedin.com/in/seanstoves"><FontAwesomeIcon icon={faLinkedinIn} /></Link></Item>
-                            <Item><Link href="https://twitter.com/sstoves"><FontAwesomeIcon icon={faTwitter} /></Link></Item>
-                            <Item><Link href="https://github.com/SeanStoves"><FontAwesomeIcon icon={faGithub} /></Link></Item>
-                            <Item><Link href="https://www.dndbeyond.com/members/SolaoBajiuik"><FontAwesomeIcon icon={faDAndD} /></Link></Item>
-                            <Item><Link href="https://twitch.tv/solaobajiuik"><FontAwesomeIcon icon={faTwitch} /></Link></Item>
-                            <Item><Link href="https://steamcommunity.com/id/solaobajiuik"><FontAwesomeIcon icon={faSteam} /></Link></Item>
+                            <Item><Link target="_blank" rel="noopener" color="#fff" href="https://www.facebook.com/sstoves"><FontAwesomeIcon icon={faFacebookF} /></Link></Item>
+                            <Item><Link target="_blank" rel="noopener" color="#fff" href="https://www.linkedin.com/in/seanstoves"><FontAwesomeIcon icon={faLinkedinIn} /></Link></Item>
+                            <Item><Link target="_blank" rel="noopener" color="#fff" href="https://twitter.com/sstoves"><FontAwesomeIcon icon={faTwitter} /></Link></Item>
+                            <Item><Link target="_blank" rel="noopener" color="#fff" href="https://github.com/SeanStoves"><FontAwesomeIcon icon={faGithub} /></Link></Item>
+                            <Item><Link target="_blank" rel="noopener" color="#fff" href="https://www.dndbeyond.com/members/SolaoBajiuik"><FontAwesomeIcon icon={faDAndD} /></Link></Item>
+                            <Item><Link target="_blank" rel="noopener" color="#fff" href="https://twitch.tv/solaobajiuik"><FontAwesomeIcon icon={faTwitch} /></Link></Item>
+                            <Item><Link target="_blank" rel="noopener" color="#fff" href="https://steamcommunity.com/id/solaobajiuik"><FontAwesomeIcon icon={faSteam} /></Link></Item>
                         </Stack>
                     </Box>
                 </Toolbar>
