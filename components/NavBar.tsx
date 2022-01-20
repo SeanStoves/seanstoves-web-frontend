@@ -37,6 +37,9 @@ const NavBar = () => {
         setAnchorElUser(null);
     };
 
+    const userFullName = session.user.name ?? 'Name';
+    const userFullImage = session.user.image ?? 'Image';
+
     return (
         <AppBar position="static">
             <Container maxWidth="xl">
@@ -122,7 +125,7 @@ const NavBar = () => {
                         <Box sx={{flexGrow: 0}}>
                             <Tooltip title="User Menu">
                                 <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
-                                    <Avatar alt={session.user.name} src={session.user.image}/>
+                                    <Avatar alt={userFullName} src={userFullImage}/>
                                 </IconButton>
                             </Tooltip>
                             <Menu
