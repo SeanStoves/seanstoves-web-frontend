@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {useSession} from "next-auth/react"
 import {withStyles, styled} from "@mui/styles";
 import {Button, Container, Toolbar, Box, AppBar, Link, NoSsr, Stack, Paper} from "@mui/material";
 import AlternateEmailRoundedIcon from '@mui/icons-material/AlternateEmailRounded';
@@ -32,7 +31,6 @@ const Item = styled(Paper)(() => {
 class Footer extends React.Component<{ classes: any }> {
     render() {
         let {classes} = this.props;
-        const {data: session} = useSession();
 
         return (
             <NoSsr>
