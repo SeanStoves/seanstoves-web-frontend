@@ -17,7 +17,6 @@ const styles = {
 };
 
 const Item = styled(Paper)(({ theme }) => ({
-    padding: theme.spacing(0.1),
     textAlign: 'left',
     backgroundColor: 'inherit',
     boxShadow: 'none',
