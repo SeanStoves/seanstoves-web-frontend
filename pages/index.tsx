@@ -33,7 +33,10 @@ const Home: NextPage = () => {
                 }}
             >
                 <Typography variant="body1" component="span">
-                    Hey, Welcome to the website of Sean Stoves Sr a.k.a. Solao Bajiuik.  I am a proud father of 3 young lads aged {age("20091213")}, {age("20100923")} and {age("20131124")}
+                    Hey, Welcome to the website of Sean Stoves Sr a.k.a. Solao Bajiuik.
+                </Typography>
+                <Typography variant="body1" component="span">
+                    I am a proud father of 3 young lads aged {age("20091213")}, {age("20100923")} and {age("20131124")}
                 </Typography>
 
             </Box>
