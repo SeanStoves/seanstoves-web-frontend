@@ -28,7 +28,7 @@ jobs:
   build:
     needs: cleanup
     runs-on: ubuntu-latest
-    container: node:current
+    container: node:16.13.2-alpine
     steps:
       - name: Checkout
         uses: actions/checkout@v2
