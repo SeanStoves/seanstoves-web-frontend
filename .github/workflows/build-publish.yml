@@ -33,6 +33,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - run: npm ci
+      - run: npm run types
       - run: npm run build
       - name: Upload Next build
         uses: actions/upload-artifact@v2
