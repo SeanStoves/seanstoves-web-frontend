@@ -17,7 +17,7 @@ export default function App({Component, pageProps}: AppProps) {
                 // you have a short session maxAge time. Shown here with default values.
                 session={pageProps.session}
             >
-                <title>{process.env.NEXT_PUBLIC_SITE_NAME}</title>
+                <title>{(process.env.NODE_ENV == "development" ? process.env.NEXT_PUBLIC_SITE_NAME : process.env.SITE_NAME)}</title>
                 <NavBar />
                 <Component {...pageProps} />
                 <Footer />
