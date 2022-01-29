@@ -74,12 +74,22 @@ jobs:
           docker build -t seanstoves_web_frontend -t $GITHUB_REF_IMAGE -t $GITHUB_BRANCH_IMAGE .
           echo "Pushing Image to Chaotic Logic Container Registry"
           docker push $GITHUB_BRANCH_IMAGE
-
+      - name: Update Portainer Image
+        run: |
+          API_URI="https://panel.chaoticlogic.us"
+          CONTAINER_ID="SeanStoves-Web-Frontend"
+          ENDPOINT_URI="1"
+          echo "Getting Auth Token"
+          AUTH_TOKEN=`curl -X POST $API_URI/api/auth -H "Content-Type: application/json" -d "{\"Username\": \"${{ secrets.PORTAINER_USER}}\", \"Password\": \"${{ secrets.PORTAINER_PASSWORD}}\"}" | jq -r ".jwt" | tr -d "\n"`
+          echo "Update seanstoves_web_frontend:latest image"
+          curl -H "Content-Type: application/json" -H "Authorization: Bearer $AUTH_TOKEN" "$API_URI/api/endpoints/$ENDPOINT_URI/docker/images/create?fromImage=registry.chaoticlogic.us%2Fseanstoves_web_frontend:latest" -H "X-Registry-Auth: eyJzZXJ2ZXJhZGRyZXNzIjoicmVnaXN0cnkuY2hhb3RpY2xvZ2ljLnVzIn0=" --data-raw "{\"fromImage\":\"registry.chaoticlogic.us/seanstoves_web_frontend:latest\"}"
   #######
   #   Deploy via Portainer API
   #######
   deploy:
     needs: publish
+    environment:
+      name: production
     runs-on: ubuntu-latest
 
     steps:
@@ -90,8 +100,6 @@ jobs:
           ENDPOINT_URI="1"
           echo "Getting Auth Token"
           AUTH_TOKEN=`curl -X POST $API_URI/api/auth -H "Content-Type: application/json" -d "{\"Username\": \"${{ secrets.PORTAINER_USER}}\", \"Password\": \"${{ secrets.PORTAINER_PASSWORD}}\"}" | jq -r ".jwt" | tr -d "\n"`
-          echo "Update seanstoves_web_frontend:latest image"
-          curl -H "Content-Type: application/json" -H "Authorization: Bearer $AUTH_TOKEN" "$API_URI/api/endpoints/$ENDPOINT_URI/docker/images/create?fromImage=registry.chaoticlogic.us%2Fseanstoves_web_frontend:latest" -H "X-Registry-Auth: eyJzZXJ2ZXJhZGRyZXNzIjoicmVnaXN0cnkuY2hhb3RpY2xvZ2ljLnVzIn0=" --data-raw "{\"fromImage\":\"registry.chaoticlogic.us/seanstoves_web_frontend:latest\"}"
           echo "Stopping Old Container"
           curl -H "Content-Type: application/json" -H "Authorization: Bearer $AUTH_TOKEN" "$API_URI/api/endpoints/$ENDPOINT_URI/docker/containers/$CONTAINER_ID/stop" --data-raw "{}"
           echo "Renaming old Container"
