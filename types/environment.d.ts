@@ -20,5 +20,7 @@ namespace NodeJS {
     DATABASE_URL: string
     SECRET: string
     NEXT_PUBLIC_SITE_NAME: string
+    REACT_APP_SITE_NAME: string
+    SITE_NAME: string
   }
 }
