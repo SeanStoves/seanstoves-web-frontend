@@ -80,6 +80,8 @@ jobs:
   #######
   deploy:
     needs: publish
+    environment:
+      name: production
     runs-on: ubuntu-latest
 
     steps:
