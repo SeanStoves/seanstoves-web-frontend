@@ -4,7 +4,7 @@ import {Button, Container, Toolbar, Box, AppBar, Link, NoSsr, Stack, Paper} from
 import AlternateEmailRoundedIcon from '@mui/icons-material/AlternateEmailRounded';
 import PhoneAndroidRoundedIcon from '@mui/icons-material/PhoneAndroidRounded';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faLinkedinIn, faTwitter, faGithub, faDAndD, faTwitch, faSteam } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookF, faLinkedinIn, faTwitter, faGithub, faDAndD, faTwitch, faSteam, faDiscord } from '@fortawesome/free-brands-svg-icons';
 import {createTheme} from "@mui/system";
 
 
@@ -138,6 +138,9 @@ class Footer extends React.Component<{ classes: any }> {
                                     <Item><Link target="_blank" rel="noopener" color="#fff"
                                                 href="https://steamcommunity.com/id/solaobajiuik"><FontAwesomeIcon
                                         icon={faSteam}/></Link></Item>
+<Item><Link target="_blank" rel="noopener" color="#fff"
+                                                href="https://discord.com/invite/f7YJ4q4DaY"><FontAwesomeIcon
+                                        icon={faDiscord}/></Link></Item>
                                 </Stack>
                             </Box>
                         </Toolbar>
