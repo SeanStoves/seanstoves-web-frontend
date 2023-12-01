@@ -36,7 +36,7 @@ const Home: NextPage = () => {
                     Hey, Welcome to the website of Sean Stoves Sr a.k.a. Solao Bajiuik.
                 </Typography>
                 <Typography variant="body1" component="span">
-                    I am a proud father of 3 young lads aged {age("20091213")}, {age("20100923")} and {age("20131124")}
+                    I am a proud father of 3 young lads aged {age("20091213")}, {age("20100923")} and {age("20131124")} as well as a wonderful young foster lass {age("20120208")}
                 </Typography>
 
             </Box>
