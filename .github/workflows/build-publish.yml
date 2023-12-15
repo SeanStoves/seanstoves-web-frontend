@@ -74,6 +74,10 @@ jobs:
           docker build -t seanstoves_web_frontend -t $GITHUB_REF_IMAGE -t $GITHUB_BRANCH_IMAGE .
           echo "Pushing Image to Chaotic Logic Container Registry"
           docker push $GITHUB_BRANCH_IMAGE
+      - name: Wait / Sleep Action
+        uses: GuillaumeFalourd/wait-sleep-action@v1
+        with:
+          time: '20'
       - name: Update Portainer Image
         run: |
           API_URI="https://panel.chaoticlogic.us"
