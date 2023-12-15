@@ -55,7 +55,7 @@ class Footer extends React.Component<{ classes: any }> {
                                     sx={{color: 'white', display: 'block'}}
                                     variant="outlined"
                                     component={Link}
-                                    href="https://cloud-01.chaoticlogic.us/s/om9cYFKYHe5fsrA/download/SeanStoves-Resume2019.pdf"
+                                    href="https://cloud-01.chaoticlogic.us/s/cpptLgzTSLwEHp8/download/SeanStoves-Resume2023.pdf"
                                 >
                                     Download Resume
                                 </Button>
