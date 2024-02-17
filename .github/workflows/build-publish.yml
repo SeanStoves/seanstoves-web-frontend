@@ -74,47 +74,7 @@ jobs:
           docker build -t seanstoves_web_frontend -t $GITHUB_REF_IMAGE -t $GITHUB_BRANCH_IMAGE .
           echo "Pushing Image to Chaotic Logic Container Registry"
           docker push $GITHUB_BRANCH_IMAGE
-      - name: Wait / Sleep Action
-        uses: GuillaumeFalourd/wait-sleep-action@v1
+      - name: Redeploy Container
+        uses: newarifrh/portainer-service-webhook@v1
         with:
-          time: '20'
-      - name: Update Portainer Image
-        run: |
-          API_URI="https://panel.chaoticlogic.us"
-          CONTAINER_ID="SeanStoves-Web-Frontend"
-          ENDPOINT_URI="1"
-          echo "Getting Auth Token"
-          AUTH_TOKEN=`curl -X POST $API_URI/api/auth -H "Content-Type: application/json" -d "{\"Username\": \"${{ secrets.PORTAINER_USER}}\", \"Password\": \"${{ secrets.PORTAINER_PASSWORD}}\"}" | jq -r ".jwt" | tr -d "\n"`
-          echo "Update seanstoves_web_frontend:latest image"
-          curl -H "Content-Type: application/json" -H "Authorization: Bearer $AUTH_TOKEN" "$API_URI/api/endpoints/$ENDPOINT_URI/docker/images/create?fromImage=registry.chaoticlogic.us%2Fseanstoves_web_frontend:latest" -H "X-Registry-Auth: ${{ secrets.REGISTRY_AUTH}}" --data-raw "{\"fromImage\":\"registry.chaoticlogic.us/seanstoves_web_frontend:latest\"}"
-  #######
-  #   Deploy via Portainer API
-  #######
-  deploy:
-    needs: publish
-    environment:
-      name: production
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Update Portainer Container
-        run: |
-          API_URI="https://panel.chaoticlogic.us"
-          CONTAINER_ID="SeanStoves-Web-Frontend"
-          ENDPOINT_URI="1"
-          echo "Getting Auth Token"
-          AUTH_TOKEN=`curl -X POST $API_URI/api/auth -H "Content-Type: application/json" -d "{\"Username\": \"${{ secrets.PORTAINER_USER}}\", \"Password\": \"${{ secrets.PORTAINER_PASSWORD}}\"}" | jq -r ".jwt" | tr -d "\n"`
-          echo "Stopping Old Container"
-          curl -H "Content-Type: application/json" -H "Authorization: Bearer $AUTH_TOKEN" "$API_URI/api/endpoints/$ENDPOINT_URI/docker/containers/$CONTAINER_ID/stop" --data-raw "{}"
-          echo "Renaming old Container"
-          curl -H "Content-Type: application/json" -H "Authorization: Bearer $AUTH_TOKEN" "$API_URI/api/endpoints/$ENDPOINT_URI/docker/containers/$CONTAINER_ID/rename?name=%2F$CONTAINER_ID-old" --data-raw "{}"
-          echo "Create new container"
-          CONTAINER_CREATION_RESPONSE=`curl -H "Content-Type: application/json" -H "Authorization: Bearer $AUTH_TOKEN" "$API_URI/api/endpoints/$ENDPOINT_URI/docker/containers/create?name=$CONTAINER_ID" --data-raw "{\"Cmd\":[\"/bin/sh\",\"-c\",\"npm start\"],\"Entrypoint\":[\"docker-entrypoint.sh\"],\"Env\":[\"GOOGLE_ID=${{ secrets.GOOGLE_ID}}\",\"GOOGLE_SECRET=${{ secrets.GOOGLE_SECRET}}\",\"NEXTAUTH_URL=https://www.seanstoves.com\",\"SECRET=${{ secrets.SITE_SECRET}}\",\"JWT_SIGNING_PRIVATE_KEY=${{ secrets.JWT_SIGNING_PRIVATE_KEY}}\",\"NEXT_PUBLIC_SITE_NAME=Sean Stoves\",\"REACT_APP_SITE_NAME=Sean Stoves\"],\"Image\":\"registry.chaoticlogic.us/seanstoves_web_frontend:latest\",\"Labels\":{},\"OnBuild\":null,\"OpenStdin\":false,\"StdinOnce\":false,\"Tty\":false,\"User\":\"\",\"WorkingDir\":\"/home/node/app\",\"HostConfig\":{\"AutoRemove\":false,\"RestartPolicy\":{\"MaximumRetryCount\":0,\"Name\":\"unless-stopped\"}},\"name\":\"$CONTAINER_ID\",\"ExposedPorts\":{\"3000/tcp\":{}},\"NetworkingConfig\":{\"EndpointsConfig\":{\"SeansPublicStuff\":{\"IPAMConfig\":{\"IPv4Address\":\"172.20.0.2\"},\"IPAddress\":\"172.20.0.2\"}}}}"`
-          echo "Starting Container"
-          curl -H "Content-Type: application/json" -H "Authorization: Bearer $AUTH_TOKEN" "$API_URI/api/endpoints/$ENDPOINT_URI/docker/containers/$CONTAINER_ID/start" --data-raw "{}"
-          echo "Get Resource Control ID"
-          NEW_RESOURCE_CONTROL_ID=`echo $CONTAINER_CREATION_RESPONSE | jq -r ".Portainer.ResourceControl.Id"`
-          echo "Lock down new container"
-          curl -X PUT -H "Content-Type: application/json" -H "Authorization: Bearer $AUTH_TOKEN" "$API_URI/api/resource_controls/$NEW_RESOURCE_CONTROL_ID" --data-raw "{\"AdministratorsOnly\":true,\"Public\":false,\"Users\":[],\"Teams\":[]}"
-          echo "Delete old container"
-          curl -X DELETE -H "Authorization: Bearer $AUTH_TOKEN" "$API_URI/api/endpoints/$ENDPOINT_URI/docker/containers/$CONTAINER_ID-old?force=true&v=1"
+          webhook_url: ${{ secrets.PORTAINER_WEBHOOK }}
