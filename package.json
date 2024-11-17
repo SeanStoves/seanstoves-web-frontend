@@ -1,50 +1,23 @@
 {
-  "name": "seanstoves-web",
-  "version": "1.0.0",
+  "name": "seanstoves-web-frontend",
+  "version": "0.1.0",
   "private": true,
-  "description": "SeanStoves Private Website",
-  "repository": "https://github.com/SeanStoves/seanstoves-web-frontend.git",
-  "bugs": {
-    "url": "https://github.com/SeanStoves/seanstoves-web-frontend/issues"
-  },
-  "homepage": "https://www.seanstoves.com",
-  "main": "",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "types": "tsc --noEmit"
-  },
-  "author": "Sean Stoves <sean@seanstoves.com>",
-  "contributors": [
-    "Daniel DeCloet <djdecloet@gmail.com>"
-  ],
-  "license": "ISC",
-  "prettier": {
-    "semi": false
+    "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/cache": "^11.7.1",
-    "@emotion/react": "^11.7.1",
-    "@emotion/server": "^11.4.0",
-    "@emotion/styled": "^11.6.0",
-    "@fortawesome/free-brands-svg-icons": "^5.15.4",
-    "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@fortawesome/react-fontawesome": "^0.1.16",
-    "@mui/icons-material": "^5.2.5",
-    "@mui/material": "^5.2.8",
-    "@mui/styles": "^5.3.0",
-    "next": "^11.0.0",
-    "next-auth": "^4.0.1",
-    "nodemailer": "^6.6.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-moment": "^1.1.1"
+    "flowbite-react": "^0.10.2",
+    "next": "15.0.3",
+    "react": "19.0.0-rc-66855b96-20241106",
+    "react-dom": "19.0.0-rc-66855b96-20241106"
   },
   "devDependencies": {
-    "@types/node": "^15.12.4",
-    "@types/react": "^17.0.11",
-    "@types/react-dom": "^17.0.8",
-    "typescript": "^4.3.4"
+    "eslint": "^8",
+    "eslint-config-next": "15.0.3",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
   }
 }
