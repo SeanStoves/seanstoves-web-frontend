@@ -1,0 +1,46 @@
+#root {
+  width: 100%;               /* Use the full width of the viewport */
+  height: 100%;              /* Ensure it spans the full height */
+  margin: 0;                 /* Remove auto-centering margins */
+  padding: 0;                /* Remove padding as it restricts content */
+  display: flex;             /* Ensure flexbox for alignment */
+  flex-direction: column;    /* Stack content vertically */
+  text-align: center;        /* Optional: Keep center alignment */
+}
+
+.logo {
+  height: auto;                   /* Scale based on width */
+  max-height: 6em;                /* Limit maximum height */
+  width: auto;                    /* Maintain aspect ratio */
+  padding: 1em;                   /* Reduce padding for better spacing */
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
