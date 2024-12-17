@@ -1,22 +1,20 @@
-FROM node:lts-alpine
 
-ENV NODE_ENV production
-ENV NPM_CONFIG_LOGLEVEL warn
+FROM node:lts-alpine as builder
 
-RUN mkdir /home/node/app/ && chown -R node:node /home/node/app
+WORKDIR /app
 
-WORKDIR /home/node/app
+COPY package.json package.json
+COPY package-lock.json package-lock.json
 
-COPY --chown=node:node package.json package.json
-COPY --chown=node:node package-lock.json package-lock.json
+RUN npm install
 
-USER node
+COPY . .
+RUN npm run build
 
-RUN npm install --production
+FROM nginx:alpine as production
 
-COPY --chown=node:node .next .next
-COPY --chown=node:node public public
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-EXPOSE 3000
+EXPOSE 80
 
-CMD npm start
+CMD ["nginx", "-g", "daemon off;"]
