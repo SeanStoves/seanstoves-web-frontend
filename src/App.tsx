@@ -35,7 +35,7 @@ const App: React.FC = () => {
                     mode: mode,
                     ...(mode === 'dark'
                         ? {
-                            // WebStorm Dark Mode Colors
+                            // Dark Mode Colors
                             primary: {
                                 main: '#4DABF7', // Light Blue
                             },
@@ -49,7 +49,7 @@ const App: React.FC = () => {
                             },
                         }
                         : {
-                            // WebStorm Light Mode Colors
+                            // Light Mode Colors
                             primary: {
                                 main: '#1E88E5', // Blue
                             },
