@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faLinkedin, faTwitter, faGithub, faSteam, faDiscord, faTwitch } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faLinkedin, faXTwitter, faGithub, faSteam, faDiscord, faTwitch } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -52,8 +52,8 @@ const Footer: React.FC = () => {
                     <IconButton href="https://www.linkedin.com/in/seanstoves" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon icon={faLinkedin} />
                     </IconButton>
-                    <IconButton href="https://twitter.com/sstoves" target="_blank" rel="noopener noreferrer">
-                        <FontAwesomeIcon icon={faTwitter} />
+                    <IconButton href="https://x.com/sstoves" target="_blank" rel="noopener noreferrer">
+                        <FontAwesomeIcon icon={faXTwitter} />
                     </IconButton>
                     <IconButton href="https://github.com/SeanStoves" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon icon={faGithub} />
