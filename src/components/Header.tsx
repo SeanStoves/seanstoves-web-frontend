@@ -69,7 +69,7 @@ const Header: React.FC<{ siteConfig: { logo: string; siteName: string } }> = ({ 
                         </IconButton>
                     </Box>
                 </Box>
-                <Box sx={{ display: { xs: 'flex', sm: 'flex' }, gap: { xs: 1, sm: 2 }, alignItems: 'center', justifyContent: 'center', minWidth: '100px' }}>
+                <Box sx={{ display: { xs: 'flex', sm: 'flex' }, gap: { xs: 1, sm: 2 }, alignItems: 'center', justifyContent: 'center', minWidth: '150px' }}>
                     {/* Reserved space for Theme Toggle Button */}
                     <Box sx={{ width: { xs: '24px', sm: '32px' }, height: { xs: '24px', sm: '32px' }, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         {/* Add theme toggle button here */}
